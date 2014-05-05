@@ -3,6 +3,11 @@
 (quelpa 'ido-vertical-mode)
 (quelpa 'ido-ubiquitous)
 (quelpa 'smex)
+(smex-initialize)
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 ;; (quelpa 'ido-hacks)
 ;; (quelpa '(flx :repo "mbriggs/flx" :fetcher github))
 (quelpa '(flx :repo "lewang/flx" :fetcher github :branch "fix-ido-not-narrowing"))
