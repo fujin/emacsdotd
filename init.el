@@ -19,6 +19,7 @@
 		 init-flycheck
 		 init-yaml
 		 init-ruby
+     init-python
 		 init-session
 		 init-deft
 		 init-dired
@@ -30,6 +31,7 @@
 		 init-erc
 		 init-go
      init-settings
+     init-keymaps
 		 ))
 (require 'server)
 (unless (server-running-p)

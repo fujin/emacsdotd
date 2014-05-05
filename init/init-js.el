@@ -6,6 +6,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
+
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . js3-mode))
 (add-to-list 'auto-mode-alist '("\\.json.erb$" . javscript-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))

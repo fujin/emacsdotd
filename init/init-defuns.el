@@ -28,16 +28,6 @@
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
 
-(defun duplicate-line ()
-  (interactive)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (open-line 1)
-  (next-line 1)
-  (vhl/clear-all)
-  (yank))
-
 (defun clean-up-buffer-or-region ()
   "Untabifies, indents and deletes trailing whitespace from buffer or region."
   (interactive)
@@ -225,3 +215,18 @@
           (-filter
            (lambda (buf) (not (s-starts-with? "*" (buffer-name buf))))
            (cdr (buffer-list (current-buffer))))))
+
+(defun fujin/cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer."
+  (interactive)
+  (fujin/indent-buffer)
+  (fujin/untabify-buffer)
+  (delete-trailing-whitespace))
+
+(defun fujin/untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun fujin/indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
