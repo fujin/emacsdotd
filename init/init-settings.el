@@ -17,6 +17,8 @@
 (setq initial-major-mode 'emacs-lisp-mode)
 (setq initial-scratch-message nil)
 
+(menu-bar-mode -1)
+
 (global-auto-revert-mode 1)
 (setq require-final-newline t)
 
