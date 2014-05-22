@@ -7,18 +7,12 @@
 
 (eval-after-load "company"
   '(progn
-     (define-key company-active-map (kbd "<tab>") nil)
-     (define-key company-active-map (kbd "ESC") 'company-abort)
-     (define-key company-active-map (kbd "<C-return>") 'company-abort)
+     ;; (define-key company-active-map (kbd "<tab>") nil)
+     ;; (define-key company-active-map (kbd "ESC") 'company-abort)
+     ;; (define-key company-active-map (kbd "<C-return>") 'company-abort)
 
-     (setq company-idle-delay t)
-     (setq company-minimum-prefix-length 3)
-     (setq company-dabbrev-downcase nil)
-     (setq company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-                               company-preview-frontend
-                               company-echo-metadata-frontend))
-
-
-     (defadvice company-pseudo-tooltip-unless-just-one-frontend (around only-show-tooltip-when-invoked activate)
-       (when (company-explicit-action-p)
-         ad-do-it))))
+     (setq company-tooltip-limit 20)                      ; bigger popup window
+     (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+     (setq company-echo-delay 0)                          ; remove annoying blinking
+     (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+     ))

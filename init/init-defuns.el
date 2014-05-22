@@ -4,17 +4,6 @@
 (quelpa 's)
 (eval-after-load "dash" '(dash-enable-font-lock))
 
-(defun duplicate-region ()
-  (interactive)
-  (kill-region (region-beginning) (region-end))
-  (yank)
-  (vhl/clear-all)
-  (yank))
-
-(defun ido-find-file-in-project-root ()
-  (interactive)
-  (ido-find-file-in-dir (projectile-project-root)))
-
 (defun delete-this-buffer-and-file ()
   "Removes file connected to current buffer and kills buffer."
   (interactive)
@@ -75,21 +64,6 @@
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
-(defun add-to-js-globals ()
-  (interactive)
-  (let ((var (word-at-point)))
-    (save-excursion
-      (goto-char (point-min))
-      (when (not (string-match "^/\\*global " (current-line)))
-        (newline)
-        (forward-line -1)
-        (insert "/*global */"))
-      (while (not (string-match "*/" (current-line)))
-        (next-line))
-      (end-of-line)
-      (delete-char -2)
-      (insert (concat var " */")))))
-
 (defun semi-colonize ()
   (interactive)
   (goto-char (point-min))
@@ -126,24 +100,9 @@
       (setq default-directory
             (file-name-directory buffer-file-name))))
 
-(defun switch-to-local-project ()
-  (interactive)
-  (let* ((prompt "Switch to project: ")
-         (project-dir "~/src")
-         (choices (actionable-files-in-directory project-dir))
-         (project (ido-completing-read prompt choices nil t)))
-
-    (find-file (concat project-dir "/" project))))
-
-(defun actionable-files-in-directory (dir)
-  (let ((files (directory-files dir))
-        (blacklist '(".DS_Store" "." "..")))
-    (-difference files blacklist)))
-
-
 (defmacro allow-line-as-region-for-function (orig-function)
   `(defun ,(intern (concat (symbol-name orig-function) "-or-line"))
-       ()
+     ()
      ,(format "Like `%s', but acts on the current line if mark is not active."
               orig-function)
      (interactive)
@@ -209,13 +168,6 @@
     (switch-to-buffer (get-buffer-create bufname))
     (emacs-lisp-mode)))
 
-(defun only-current-buffer ()
-  (interactive)
-    (mapc 'kill-buffer
-          (-filter
-           (lambda (buf) (not (s-starts-with? "*" (buffer-name buf))))
-           (cdr (buffer-list (current-buffer))))))
-
 (defun fujin/cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."
   (interactive)
@@ -230,3 +182,10 @@
 (defun fujin/indent-buffer ()
   (interactive)
   (indent-region (point-min) (point-max)))
+
+(defun fujin/mark-buffer-then-format-json-and-reindent ()
+  "Fancy JSON formatter"
+  (interactive)
+  (mark-whole-buffer)
+  (format-json)
+  (fujin/indent-buffer))

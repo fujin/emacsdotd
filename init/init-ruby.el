@@ -23,3 +23,8 @@
      (setq rspec-use-rake-flag nil)
      (setq rspec-spec-command "rspec")
      (setq rspec-use-spring-when-possible t)))
+
+(eval-after-load "enh-ruby-mode"
+  '(progn
+     '(enh-ruby-deep-indent-paren nil)
+     ))

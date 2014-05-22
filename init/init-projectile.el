@@ -2,6 +2,7 @@
 
 (quelpa 'projectile)
 (quelpa 'grizzl)
+(quelpa 'go-projectile)
 
 (projectile-global-mode)
 
