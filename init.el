@@ -3,35 +3,41 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/init"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp"))
 
-(mapc 'require '(init-bootstrap
-		 init-defuns
-		 init-appearance
-		 init-ido
-		 init-completion
-		 init-projectile
-		 init-magit
-		 init-expand-region
-		 init-web
-		 init-parens
-		 init-modeline
-		 init-markdown
-		 init-js
-		 init-flycheck
-		 init-yaml
-		 init-ruby
-     init-python
-		 init-session
-		 init-deft
-		 init-dired
-		 init-clojure
-		 init-crontab
-		 init-anzu
-		 init-snippets
-		 init-ack
-		 init-erc
-		 init-go
-     init-settings
-     init-keymaps
+(mapc 'require
+      '(
+	;;; Always bootstrap first
+        init-bootstrap
+
+	;; These all use the (quelpa) form.
+        init-ack
+        init-anzu
+        init-appearance
+        init-circe
+        init-clojure
+        init-completion
+        init-crontab
+        init-deft
+        init-defuns
+        init-dired
+        init-erc
+        init-expand-region
+        init-flycheck
+        init-go
+        init-ido
+        init-js
+        init-keymaps
+        init-magit
+        init-markdown
+        init-modeline
+        init-parens
+        init-projectile
+        init-python
+        init-ruby
+        init-session
+        init-settings
+        init-snippets
+        init-web
+        init-yaml
 		 ))
 (require 'server)
 (unless (server-running-p)
