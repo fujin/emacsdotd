@@ -23,6 +23,7 @@
         init-expand-region
         init-flycheck
         init-go
+        init-haskell
         init-ido
         init-js
         init-keymaps
