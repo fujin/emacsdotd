@@ -12,7 +12,7 @@
 
 (modify-all-frames-parameters '((fullscreen . maximized)))
 
-(setq package-archives nil)
+;; (setq package-archives nil)
 (package-initialize)
 
 (if (require 'quelpa nil t)
