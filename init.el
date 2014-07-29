@@ -39,6 +39,7 @@
         init-snippets
         init-web
         init-yaml
+        init-org
 		 ))
 (require 'server)
 (unless (server-running-p)

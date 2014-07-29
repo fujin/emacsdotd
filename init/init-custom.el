@@ -9,7 +9,8 @@
  '(js3-auto-indent-p t)
  '(js3-highlight-external-variables nil)
  '(js3-highlight-level 3)
- '(session-use-package t nil (session)))
+ '(session-use-package t nil (session))
+ '(timesheet-invoice-number 101))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

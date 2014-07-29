@@ -1,9 +1,14 @@
 (provide 'init-go)
 
-(add-to-list 'load-path "/usr/local/go/misc/emacs")
+(quelpa 'go-mode)
 (require 'go-mode-load)
 
-;; (quelpa 'go-errcheck)
+(quelpa 'go-eldoc)
+(require 'go-eldoc)
+(add-hook 'go-mode-hook 'go-eldoc-setup)
+
+(quelpa 'go-errcheck)
+
 (eval-after-load "go-mode"
   '(progn
      (add-hook 'before-save-hook #'gofmt-before-save)))

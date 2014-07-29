@@ -13,9 +13,9 @@
 
 
 (setq js-indent-level 2)
-(eval-after-load "coffee-mode"
-  `(setq coffee-js-mode preferred-javascript-mode
-         coffee-tab-width preferred-javascript-indent-level))
+;; (eval-after-load "coffee-mode"
+;;   `(setq coffee-js-mode preferred-javascript-mode
+;;          coffee-tab-width preferred-javascript-indent-level))
 
 ;; (font-lock-add-keywords
 ;; 'js3-mode `(("function *([^)]*) *{ *\\(return\\) "
