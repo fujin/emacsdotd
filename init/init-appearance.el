@@ -1,7 +1,7 @@
 (provide 'init-appearance)
 
 (quelpa '(color-theme-solarized
-	  :repo "sellout/emacs-color-theme-solarized"
+	  :repo "fujin/emacs-color-theme-solarized"
 	  :fetcher github))
 
 (quelpa 'dash)

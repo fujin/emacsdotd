@@ -10,7 +10,7 @@
  '(js3-highlight-external-variables nil)
  '(js3-highlight-level 3)
  '(session-use-package t nil (session))
- '(timesheet-invoice-number 101))
+ '(timesheet-invoice-number 106))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
