@@ -7,6 +7,10 @@
 (setq circe-network-options
       `(("freenode"
          :nick "fujin"
-         :channels ("#go-chef" "#chef" "#chef-hacking")
+         :channels ("#go-chef"
+                    "#chef"
+                    "#chef-hacking"
+                    "#taulabs"
+                    )
          :nickserv-password ,freenode-password
          )))

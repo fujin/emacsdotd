@@ -9,6 +9,8 @@
 
 (require 'timesheet)
 
+(set-time-zone-rule "UTC")
+
 (define-prefix-command 'outline-map)
 (global-set-key (kbd "<f10>") 'outline-map)
 (define-key outline-map (kbd "c") 'timesheet-clock-update-timeclock)

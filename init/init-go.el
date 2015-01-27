@@ -3,8 +3,8 @@
 ;; (add-to-list 'load-path (expand-file-name "/usr/local/go/misc/emacs"))
 
 (if (require 'go-mode-load nil t)
-    (quelpa '(go-mode :repo "dominikh/go-mode.el" :fetcher github))
-    (require 'go-mode-load))
+    (quelpa '(go-mode :repo "dominikh/go-mode.el" :fetcher github)))
+;;    (require 'go-mode-load))
 
 (quelpa 'go-eldoc)
 (require 'go-eldoc)
